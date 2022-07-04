@@ -15,9 +15,9 @@ const StyledBar = styled("div", {
   maxWidth: "auto",
   width: "100%",
   minHeight: "15px",
-  backgroundColor: "rgba(255,255,255,0.7)",
+  backgroundColor: "rgba(255,255,255,0.65)",
   borderRadius: "10px",
-  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+  boxShadow: "0px 3px 0px rgba(0, 0, 0, 0.1)",
   backdropFilter: "blur( 5px )",
   variants: {
     state: {
@@ -25,10 +25,10 @@ const StyledBar = styled("div", {
         backgroundColor: "rgba(255,255,255,0.7)",
       },
       compare: {
-        backgroundColor: "rgba(132, 247, 255, 0.835)",
+        backgroundColor: "#C6AFDF",
       },
       swap: {
-        backgroundColor: "rgba(255,255,255)",
+        backgroundColor: "#C6AFDF",
       },
       highlight: {
         backgroundColor: "#67fff27f",
