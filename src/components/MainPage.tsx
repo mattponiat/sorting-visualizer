@@ -6,10 +6,9 @@ import { getRandomNumbers } from "../functions/getRandomNumbers";
 import { startAnimation } from "../functions/startAnimation";
 //Components
 import { SortingBar } from "./SortingBar/SortingBar";
+import { NumberInput } from "./NumberInput/NumberInput";
 //Types
 import { BoxStateType } from "../utils/types";
-import { StyledButton } from "./StyledButton/StyledButton";
-import { StyledRange } from "./StyledRange/StyledRange";
 //Hooks
 import { useLatest } from "ahooks";
 
@@ -42,32 +41,15 @@ const MainPage = () => {
       <OptionsWrapper>
         <SlidersContainer>
           <SliderWrapper>
-            <label htmlFor="length" style={{ fontSize: "18px" }}>
-              Length: {length}
-            </label>
-            <StyledRange
-              id="length"
-              type="range"
-              min="10"
-              max="150"
-              step="10"
+            <NumberInput
               value={length}
-              onChange={(e) => setLength(parseInt(e.target.value))}
+              setValue={setLength}
+              id="length"
+              max={150}
             />
           </SliderWrapper>
           <SliderWrapper>
-            <label htmlFor="delay" style={{ fontSize: "18px" }}>
-              Delay: {delay}
-            </label>
-            <StyledRange
-              id="delay"
-              type="range"
-              min="0"
-              max="500"
-              step="10"
-              value={delay}
-              onChange={(e) => setDelay(parseInt(e.target.value))}
-            />
+            <NumberInput value={delay} setValue={setDelay} id="delay" />
           </SliderWrapper>
         </SlidersContainer>
         <ButtonWrapper>
@@ -75,7 +57,7 @@ const MainPage = () => {
             onClick={() =>
               startAnimation(
                 stepArray,
-                latestDelayRef.current,
+                latestDelayRef,
                 array,
                 setArray,
                 stateArray,
@@ -165,6 +147,26 @@ const ButtonWrapper = styled("div", {
   display: "flex",
   alignItems: "center",
   gap: "20px",
+});
+
+const StyledButton = styled("button", {
+  width: "70px",
+  padding: "10px",
+  backgroundColor: "rgba(255,255,255,0.7)",
+  border: "none",
+  borderRadius: "10px",
+  boxShadow: "-1px 2px 0 0 #00000045",
+  backdropFilter: "blur( 10px )",
+  fontSize: "16px",
+  fontWeight: "bold",
+  color: "#000000c3",
+  cursor: "pointer",
+  transition: "all 0.2s",
+  "&:hover": {
+    backgroundColor: "transparent",
+    transform: "translateY(1px) translateX(-1px)",
+    boxShadow: "-0.5px 1px 0 0 #00000045",
+  },
 });
 
 export { MainPage };
