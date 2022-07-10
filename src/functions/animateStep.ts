@@ -11,7 +11,7 @@ const swapNumbers = (array: number[], i: number, j: number) => {
 
 type AnimateStep = (
   step: Step,
-  delay: number,
+  delay: React.MutableRefObject<number>,
   array: number[],
   setArray: React.Dispatch<React.SetStateAction<number[]>>,
   stateArray: BoxStateType[],
@@ -31,14 +31,14 @@ const animateStep: AnimateStep = async (
     changeState(stateArray, step.targets, "swap");
     setArray([...array]);
     setStateArray([...stateArray]);
-    await sleep(delay);
+    await sleep(delay.current);
   }
   changeState(stateArray, step.targets, "default");
 
   if (step.type === "compare") {
     changeState(stateArray, step.targets, "compare");
     setStateArray([...stateArray]);
-    await sleep(delay);
+    await sleep(delay.current);
   }
   changeState(stateArray, step.targets, "default");
 

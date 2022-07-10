@@ -3,7 +3,7 @@ import { animateStep } from "./animateStep";
 
 type StartAnimation = (
   stepArray: Step[],
-  delay: number,
+  delay: React.MutableRefObject<number>,
   array: number[],
   setArray: React.Dispatch<React.SetStateAction<number[]>>,
   stateArray: BoxStateType[],
