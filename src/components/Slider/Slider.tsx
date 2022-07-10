@@ -1,4 +1,29 @@
+import * as React from "react";
 import { styled } from "@stitches/react";
+
+type SliderProps = {
+  value: number;
+  setValue: (value: React.SetStateAction<number>) => void;
+  label?: string;
+  max?: number;
+  min?: number;
+};
+
+const Slider = ({ value, setValue, label, max, min }: SliderProps) => {
+  return (
+    <form>
+      <StyledRange
+        type="range"
+        value={value}
+        onChange={(e) => setValue(parseInt(e.target.value))}
+        min={min}
+        max={max}
+        step={10}
+        aria-label={label}
+      />
+    </form>
+  );
+};
 
 const StyledRange = styled("input", {
   "-webkit-appearance": "none",
@@ -35,4 +60,4 @@ const StyledRange = styled("input", {
   },
 });
 
-export { StyledRange };
+export { Slider };
