@@ -8,6 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/react-icons": "^1.1.1",
+    "@radix-ui/react-select": "^0.1.1",
     "@stitches/react": "^1.2.8",
     "@types/lodash": "^4.14.182",
     "ahooks": "^3.5.2",
