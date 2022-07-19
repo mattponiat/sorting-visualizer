@@ -2,7 +2,7 @@ import * as React from "react";
 import { styled } from "@stitches/react";
 import _ from "lodash";
 //Components
-import { Slider } from "../Slider/Slider";
+import Slider from "../Slider/Slider";
 //Hoooks
 import { useMemoizedFn } from "ahooks";
 
@@ -86,4 +86,4 @@ const StyledLabel = styled("label", {
   color: "FieldText",
 });
 
-export { NumberInput };
+export default NumberInput;

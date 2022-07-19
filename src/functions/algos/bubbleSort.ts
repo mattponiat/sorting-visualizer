@@ -1,11 +1,5 @@
 import { Step } from "../../utils/types";
-
-const swapNumbers = (array: number[], i: number, j: number) => {
-  const temp = array[i];
-
-  array[i] = array[j];
-  array[j] = temp;
-};
+import swapNumbers from "../swapNumbers";
 
 type BubbleTypes = (array: number[]) => Step[];
 
@@ -38,4 +32,4 @@ const bubbleSort: BubbleTypes = (array) => {
   return stepArray;
 };
 
-export { bubbleSort };
+export default bubbleSort;

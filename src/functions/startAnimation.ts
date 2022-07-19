@@ -1,5 +1,5 @@
 import { BoxStateType, Step } from "../utils/types";
-import { animateStep } from "./animateStep";
+import animateStep from "./animateStep";
 
 type StartAnimation = (
   stepArray: Step[],
@@ -23,4 +23,4 @@ const startAnimation: StartAnimation = async (
   }
 };
 
-export { startAnimation };
+export default startAnimation;

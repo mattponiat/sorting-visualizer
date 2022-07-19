@@ -60,4 +60,4 @@ const StyledRange = styled("input", {
   },
 });
 
-export { Slider };
+export default Slider;

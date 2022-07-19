@@ -8,4 +8,4 @@ const getRandomNumbers = (length: number): number[] => {
   return array;
 };
 
-export { getRandomNumbers };
+export default getRandomNumbers;

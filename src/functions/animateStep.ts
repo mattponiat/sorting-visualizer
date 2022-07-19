@@ -1,13 +1,7 @@
-import { sleep } from "../utils/sleep";
+import sleep from "../utils/sleep";
 import { BoxStateType, Step } from "../utils/types";
-import { changeState } from "./changeState";
-
-const swapNumbers = (array: number[], i: number, j: number) => {
-  const temp = array[i];
-
-  array[i] = array[j];
-  array[j] = temp;
-};
+import changeState from "./changeState";
+import swapNumbers from "./swapNumbers";
 
 type AnimateStep = (
   step: Step,
@@ -42,8 +36,15 @@ const animateStep: AnimateStep = async (
   }
   changeState(stateArray, step.targets, "default");
 
+  if (step.type === "pivot") {
+    changeState(stateArray, step.targets, "pivot");
+    setStateArray([...stateArray]);
+    await sleep(delay.current);
+  }
+  changeState(stateArray, step.targets, "default");
+
   setArray([...array]);
   setStateArray([...stateArray]);
 };
 
-export { animateStep };
+export default animateStep;

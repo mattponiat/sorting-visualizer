@@ -1,6 +1,6 @@
 import { BoxStateType } from "../utils/types";
 
-export const changeState = (
+const changeState = (
   array: BoxStateType[],
   targets: number[],
   state: BoxStateType
@@ -9,3 +9,5 @@ export const changeState = (
     array[target] = state;
   });
 };
+
+export default changeState;

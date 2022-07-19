@@ -1,3 +1,4 @@
+import * as React from "react";
 import { styled } from "@stitches/react";
 import { BoxStateType } from "../../utils/types";
 
@@ -7,12 +8,11 @@ type Props = {
   css?: any;
 };
 
-export const SortingBar = ({ state, ...props }: Props) => {
+const SortingBar = ({ state, ...props }: Props) => {
   return <StyledBar state={state} {...props} />;
 };
 
 const StyledBar = styled("div", {
-  maxWidth: "auto",
   width: "100%",
   minHeight: "15px",
   backgroundColor: "rgba(255,255,255,0.65)",
@@ -30,9 +30,11 @@ const StyledBar = styled("div", {
       swap: {
         backgroundColor: "#C6AFDF",
       },
-      highlight: {
+      pivot: {
         backgroundColor: "#67fff27f",
       },
     },
   },
 });
+
+export default SortingBar;
