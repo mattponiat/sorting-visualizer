@@ -61,7 +61,7 @@ const StyledInput = styled("input", {
   maxWidth: "100%",
   height: "2rem",
   border: "none",
-  borderRadius: "0.5rem",
+  borderRadius: "8px",
   backgroundColor: "rgba(255,255,255,0.7)",
   padding: "6px",
 
