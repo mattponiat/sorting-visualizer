@@ -24,7 +24,7 @@ const NumberInput = ({ value, setValue, id, min, max }: NumberInputProps) => {
 
   return (
     <Wrapper>
-      <StyledLabel>{_.capitalize(id)}</StyledLabel>
+      <StyledLabel htmlFor={id}>{_.capitalize(id)}</StyledLabel>
       <StyledInput
         type="number"
         value={value}
@@ -33,7 +33,13 @@ const NumberInput = ({ value, setValue, id, min, max }: NumberInputProps) => {
         max={max}
         onChange={(e) => handleChange(e)}
       />
-      <Slider value={value} setValue={setValue} max={max} min={min} />
+      <Slider
+        value={value}
+        setValue={setValue}
+        max={max}
+        min={min}
+        label={id}
+      />
     </Wrapper>
   );
 };
