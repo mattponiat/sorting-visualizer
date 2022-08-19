@@ -6,13 +6,14 @@ import quickSort from "../functions/algos/quickSort";
 import getRandomNumbers from "../functions/getRandomNumbers";
 import startAnimation from "../functions/startAnimation";
 //Components
-import SortingBar from "./SortingBar/SortingBar";
-import NumberInput from "./NumberInput/NumberInput";
-import SelectAlgorithm from "./SelectAlgorithm/SelectAlgorithm";
+import SortingSection from "./SortingSection/SortingSection";
+import SelectPanel from "./SelectPanel/SelectPanel";
+import StyledButton from "./StyledButton/StyledButton";
+import SlidersPanel from "./SlidersPanel/SlidersPanel";
+//Hooks
+import { useLatest } from "ahooks";
 //Types
 import { BoxStateType, SortingAlgorithms, Step } from "../utils/types";
-//Hooks
-import { useLatest, useMemoizedFn } from "ahooks";
 
 const MainPage = () => {
   const allAlgorithms: SortingAlgorithms[] = ["bubble", "quick"];
@@ -33,60 +34,41 @@ const MainPage = () => {
 
   return (
     <Wrapper>
-      <SortingWrapper css={{ gap: Math.floor(100 / array.length) }}>
-        {array.map((item, index) => (
-          <SortingBar
-            state={stateArray[index]}
-            key={index}
-            css={{
-              minHeight: `${item}px`,
-            }}
-          />
-        ))}
-      </SortingWrapper>
+      <SortingSection array={array} stateArray={stateArray} />
       <OptionsWrapper>
-        <SelectWrapper>
+        <>
           {selectedAlgorithms.map((sort: SortingAlgorithms, index: number) => {
-            const changeSelectedAlgorithm = useMemoizedFn(
-              (sort: SortingAlgorithms) => {
-                const newSelectedArray = [...selectedAlgorithms];
-                newSelectedArray[index] = sort;
-                setSelectedAlgorithms(newSelectedArray);
-              }
-            );
-
             React.useEffect(() => {
               switch (sort) {
                 case "bubble": {
                   stepArray = bubbleSort([...array]);
                   break;
                 }
-
                 case "quick": {
                   stepArray = quickSort([...array]);
                   break;
                 }
               }
+              console.log(stepArray);
             });
             return (
-              <SelectAlgorithm
-                key={sort}
+              <SelectPanel
+                sort={sort}
+                index={index}
                 allAlgorithms={allAlgorithms}
-                value={selectedAlgorithms[index]}
-                setValue={changeSelectedAlgorithm}
+                selectedAlgorithms={selectedAlgorithms}
+                setSelectedAlgorithms={setSelectedAlgorithms}
+                key={index}
               />
             );
           })}
-        </SelectWrapper>
-        <SlidersWrapper>
-          <NumberInput
-            value={length}
-            setValue={setLength}
-            id="length"
-            max={150}
-          />
-          <NumberInput value={delay} setValue={setDelay} id="delay" />
-        </SlidersWrapper>
+        </>
+        <SlidersPanel
+          delay={delay}
+          length={length}
+          setDelay={setDelay}
+          setLength={setLength}
+        />
         <ButtonWrapper>
           <StyledButton
             onClick={() =>
@@ -128,19 +110,6 @@ const Wrapper = styled("div", {
   backgroundBlendMode: "multiply",
 });
 
-const SortingWrapper = styled("div", {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "end",
-  minHeight: "650px",
-  maxWidth: "1480px",
-  width: "100%",
-  padding: "20px",
-  boxShadow: "0 8px 32px 0 #00000045",
-  backdropFilter: "blur( 10px )",
-  borderRadius: "32px",
-});
-
 const OptionsWrapper = styled("div", {
   display: "flex",
   flexDirection: "row",
@@ -157,45 +126,10 @@ const OptionsWrapper = styled("div", {
   },
 });
 
-const SlidersWrapper = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "10px",
-});
-
-const SelectWrapper = styled("div", {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  maxWidth: "100%",
-  width: "150px",
-});
-
 const ButtonWrapper = styled("div", {
   display: "flex",
   alignItems: "center",
   gap: "20px",
-});
-
-const StyledButton = styled("button", {
-  width: "70px",
-  padding: "10px",
-  backgroundColor: "rgba(255,255,255,0.7)",
-  border: "none",
-  borderRadius: "8px",
-  boxShadow: "-1px 2px 0 0 #00000045",
-  backdropFilter: "blur( 10px )",
-  fontSize: "16px",
-  fontWeight: "bold",
-  color: "#000000c3",
-  cursor: "pointer",
-  transition: "all 0.2s",
-  "&:hover": {
-    backgroundColor: "transparent",
-    transform: "translateY(1px) translateX(-1px)",
-    boxShadow: "-0.5px 1px 0 0 #00000045",
-  },
 });
 
 export { MainPage };
