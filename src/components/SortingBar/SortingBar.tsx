@@ -18,7 +18,7 @@ const StyledBar = styled("div", {
   backgroundColor: "rgba(255,255,255,0.65)",
   borderRadius: "10px",
   boxShadow: "0px 3px 0px rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur( 5px )",
+  backdropFilter: "blur(5px)",
   variants: {
     state: {
       default: {
