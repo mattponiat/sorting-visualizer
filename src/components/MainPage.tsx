@@ -49,7 +49,6 @@ const MainPage = () => {
                   break;
                 }
               }
-              console.log(stepArray);
             });
             return (
               <SelectPanel
