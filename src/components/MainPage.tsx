@@ -3,6 +3,7 @@ import { styled } from "@stitches/react";
 //Functions
 import bubbleSort from "../functions/algos/bubbleSort";
 import quickSort from "../functions/algos/quickSort";
+import insertionSort from "../functions/algos/insertionSort";
 import getRandomNumbers from "../functions/getRandomNumbers";
 import startAnimation from "../functions/startAnimation";
 //Components
@@ -16,7 +17,7 @@ import { useLatest } from "ahooks";
 import { BoxStateType, SortingAlgorithms, Step } from "../utils/types";
 
 const MainPage = () => {
-  const allAlgorithms: SortingAlgorithms[] = ["bubble", "quick"];
+  const allAlgorithms: SortingAlgorithms[] = ["bubble", "quick", "insertion"];
   const [length, setLength] = React.useState(10);
   const [delay, setDelay] = React.useState(50);
   const [array, setArray] = React.useState<number[]>([]);
@@ -46,6 +47,10 @@ const MainPage = () => {
                 }
                 case "quick": {
                   stepArray = quickSort([...array]);
+                  break;
+                }
+                case "insertion": {
+                  stepArray = insertionSort([...array]);
                   break;
                 }
               }
