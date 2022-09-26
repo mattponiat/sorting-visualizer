@@ -18,8 +18,20 @@ const SlidersPanel = ({
 }: SlidersPanelProps) => {
   return (
     <Wrapper>
-      <NumberInput value={length} setValue={setLength} id="length" max={150} />
-      <NumberInput value={delay} setValue={setDelay} id="delay" />
+      <NumberInput
+        value={length}
+        setValue={setLength}
+        id="length"
+        min={10}
+        max={150}
+      />
+      <NumberInput
+        value={delay}
+        setValue={setDelay}
+        id="delay"
+        min={0}
+        max={500}
+      />
     </Wrapper>
   );
 };
