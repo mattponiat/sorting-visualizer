@@ -2,15 +2,12 @@ import * as React from "react";
 import { styled } from "@stitches/react";
 //Components
 import SortingBar from "../SortingBar/SortingBar";
-//Types
-import { BoxStateType } from "../../utils/types";
+//Hooks
+import { useSortingDataContext } from "../../context/SortingData";
 
-type SortingSectionProps = {
-  array: number[];
-  stateArray: BoxStateType[];
-};
+const SortingSection = () => {
+  const { array, stateArray } = useSortingDataContext();
 
-const SortingSection = ({ array, stateArray }: SortingSectionProps) => {
   return (
     <Wrapper css={{ gap: Math.floor(100 / array.length) }}>
       {array.map((item: number, index: number) => (

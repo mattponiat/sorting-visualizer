@@ -1,21 +1,13 @@
-import { styled } from "@stitches/react";
 import * as React from "react";
+import { styled } from "@stitches/react";
 //Components
 import NumberInput from "../NumberInput/NumberInput";
+//Hooks
+import { useSortingDataContext } from "../../context/SortingData";
 
-type SlidersPanelProps = {
-  length: number;
-  setLength: React.Dispatch<React.SetStateAction<number>>;
-  delay: number;
-  setDelay: React.Dispatch<React.SetStateAction<number>>;
-};
+const SlidersPanel = () => {
+  const { length, setLength, delay, setDelay } = useSortingDataContext();
 
-const SlidersPanel = ({
-  length,
-  setLength,
-  delay,
-  setDelay,
-}: SlidersPanelProps) => {
   return (
     <Wrapper>
       <NumberInput

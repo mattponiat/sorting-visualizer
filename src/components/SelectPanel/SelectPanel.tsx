@@ -4,24 +4,18 @@ import * as React from "react";
 import SelectAlgorithm from "../SelectAlgorithm/SelectAlgorithm";
 //Hooks
 import { useMemoizedFn } from "ahooks";
+import { useSortingDataContext } from "../../context/SortingData";
 //Types
 import { SortingAlgorithms } from "../../utils/types";
 
 type SelectPanelProps = {
   sort: SortingAlgorithms;
   index: number;
-  allAlgorithms: SortingAlgorithms[];
-  selectedAlgorithms: SortingAlgorithms[];
-  setSelectedAlgorithms: (newSelectedAlgorithms: SortingAlgorithms[]) => void;
 };
 
-const SelectPanel = ({
-  sort,
-  index,
-  allAlgorithms,
-  selectedAlgorithms,
-  setSelectedAlgorithms,
-}: SelectPanelProps) => {
+const SelectPanel = ({ sort, index }: SelectPanelProps) => {
+  const { selectedAlgorithms, setSelectedAlgorithms } = useSortingDataContext();
+
   const changeSelectedAlgorithm = useMemoizedFn((sort: SortingAlgorithms) => {
     const newSelectedArray = [...selectedAlgorithms];
     newSelectedArray[index] = sort;
@@ -32,7 +26,6 @@ const SelectPanel = ({
     <Wrapper>
       <SelectAlgorithm
         key={sort}
-        allAlgorithms={allAlgorithms}
         value={selectedAlgorithms[index]}
         setValue={changeSelectedAlgorithm}
       />

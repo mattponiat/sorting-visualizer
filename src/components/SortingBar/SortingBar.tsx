@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled } from "@stitches/react";
+//Types
 import { BoxStateType } from "../../utils/types";
 
 type Props = {

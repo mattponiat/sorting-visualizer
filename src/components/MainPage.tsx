@@ -12,30 +12,25 @@ import SelectPanel from "./SelectPanel/SelectPanel";
 import StyledButton from "./StyledButton/StyledButton";
 import SlidersPanel from "./SlidersPanel/SlidersPanel";
 //Hooks
-import { useLatest } from "ahooks";
+import { useSortingDataContext } from "../context/SortingData";
 //Types
-import { BoxStateType, SortingAlgorithms, Step } from "../utils/types";
+import { SortingAlgorithms, Step } from "../utils/types";
 
 const MainPage = () => {
-  const allAlgorithms: SortingAlgorithms[] = ["bubble", "quick", "insertion"];
-  const [length, setLength] = React.useState(10);
-  const [delay, setDelay] = React.useState(50);
-  const [array, setArray] = React.useState<number[]>([]);
-  const [stateArray, setStateArray] = React.useState<BoxStateType[]>([]);
-  const [selectedAlgorithms, setSelectedAlgorithms] = React.useState<
-    SortingAlgorithms[]
-  >(["bubble"]);
+  const {
+    selectedAlgorithms,
+    array,
+    setArray,
+    stateArray,
+    setStateArray,
+    latestDelayRef,
+    length,
+  } = useSortingDataContext();
   let stepArray: Step[] = [];
-  const latestDelayRef = useLatest(delay);
-
-  React.useEffect(() => {
-    setArray(getRandomNumbers(length));
-    setStateArray(Array.from({ length: length }, () => "default"));
-  }, [length, selectedAlgorithms]);
 
   return (
     <Wrapper>
-      <SortingSection array={array} stateArray={stateArray} />
+      <SortingSection />
       <OptionsWrapper>
         <>
           {selectedAlgorithms.map((sort: SortingAlgorithms, index: number) => {
@@ -55,24 +50,10 @@ const MainPage = () => {
                 }
               }
             });
-            return (
-              <SelectPanel
-                sort={sort}
-                index={index}
-                allAlgorithms={allAlgorithms}
-                selectedAlgorithms={selectedAlgorithms}
-                setSelectedAlgorithms={setSelectedAlgorithms}
-                key={index}
-              />
-            );
+            return <SelectPanel sort={sort} index={index} key={index} />;
           })}
         </>
-        <SlidersPanel
-          delay={delay}
-          length={length}
-          setDelay={setDelay}
-          setLength={setLength}
-        />
+        <SlidersPanel />
         <ButtonWrapper>
           <StyledButton
             onClick={() =>

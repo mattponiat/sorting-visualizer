@@ -1,6 +1,5 @@
-import _ from "lodash";
 import * as React from "react";
-import { SortingAlgorithms } from "../../utils/types";
+import _ from "lodash";
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -22,14 +21,19 @@ import {
   SelectScrollUpButton,
   SelectScrollDownButton,
 } from "./SelectAlgorithm.style";
+//Hooks
+import { useSortingDataContext } from "../../context/SortingData";
+//Types
+import { SortingAlgorithms } from "../../utils/types";
 
-interface SelectProps {
-  allAlgorithms: SortingAlgorithms[];
+type SelectProps = {
   value: SortingAlgorithms;
   setValue: (value: SortingAlgorithms) => void;
-}
+};
 
-const SelectAlgorithm = ({ allAlgorithms, value, setValue }: SelectProps) => {
+const SelectAlgorithm = ({ value, setValue }: SelectProps) => {
+  const { allAlgorithms } = useSortingDataContext();
+
   return (
     <Box>
       <Select
