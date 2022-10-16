@@ -7,9 +7,9 @@ type AnimateStep = (
   step: Step,
   delay: React.MutableRefObject<number>,
   array: number[],
-  setArray: React.Dispatch<React.SetStateAction<number[]>>,
+  setArray: (array: number[]) => void,
   stateArray: BoxStateType[],
-  setStateArray: React.Dispatch<React.SetStateAction<BoxStateType[]>>
+  setStateArray: (stateArray: BoxStateType[]) => void
 ) => Promise<void>;
 
 const animateStep: AnimateStep = async (

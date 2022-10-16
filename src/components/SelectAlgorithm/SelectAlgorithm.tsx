@@ -21,8 +21,9 @@ import {
   SelectScrollUpButton,
   SelectScrollDownButton,
 } from "./SelectAlgorithm.style";
-//Hooks
-import { useSortingDataContext } from "../../context/SortingData";
+//Zustand
+import useSortingStore from "../../store/sortingStore";
+import shallow from "zustand/shallow";
 //Types
 import { SortingAlgorithms } from "../../utils/types";
 
@@ -32,7 +33,12 @@ type SelectProps = {
 };
 
 const SelectAlgorithm = ({ value, setValue }: SelectProps) => {
-  const { allAlgorithms } = useSortingDataContext();
+  const { allAlgorithms } = useSortingStore(
+    (state) => ({
+      allAlgorithms: state.allAlgorithms,
+    }),
+    shallow
+  );
 
   return (
     <Box>

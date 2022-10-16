@@ -8,7 +8,7 @@ import { useMemoizedFn } from "ahooks";
 
 interface NumberInputProps {
   value: number;
-  setValue: (value: React.SetStateAction<number>) => void;
+  setValue: (value: number) => void;
   id: string;
   min: number;
   max: number;

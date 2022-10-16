@@ -3,7 +3,7 @@ import { styled } from "@stitches/react";
 
 type SliderProps = {
   value: number;
-  setValue: (value: React.SetStateAction<number>) => void;
+  setValue: (value: number) => void;
   label?: string;
   max?: number;
   min?: number;

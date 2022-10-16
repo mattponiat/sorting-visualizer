@@ -12,53 +12,55 @@ import SelectPanel from "./SelectPanel/SelectPanel";
 import StyledButton from "./StyledButton/StyledButton";
 import SlidersPanel from "./SlidersPanel/SlidersPanel";
 //Hooks
-import { useSortingDataContext } from "../context/SortingData";
-//Types
-import { SortingAlgorithms, Step } from "../utils/types";
+import { useLatest } from "ahooks";
+import useResetArray from "../functions/useResetArray";
+//Zustand
+import useSortingStore from "../store/sortingStore";
+import shallow from "zustand/shallow";
 
 const MainPage = () => {
+  useResetArray();
   const {
-    selectedAlgorithms,
     array,
+    delay,
+    length,
+    selectedAlgorithm,
     setArray,
     stateArray,
     setStateArray,
-    latestDelayRef,
-    length,
-  } = useSortingDataContext();
-  let stepArray: Step[] = [];
+  } = useSortingStore(
+    (state) => ({
+      array: state.array,
+      delay: state.delay,
+      length: state.length,
+      selectedAlgorithm: state.selectedAlgorithm,
+      setArray: state.setArray,
+      stateArray: state.stateArray,
+      setStateArray: state.setStateArray,
+    }),
+    shallow
+  );
+
+  const x = {
+    bubble: bubbleSort([...array]),
+    quick: quickSort([...array]),
+    insertion: insertionSort([...array]),
+  };
+
+  const latestDelayRef = useLatest(delay);
+  const algorithm = selectedAlgorithm;
 
   return (
     <Wrapper>
       <SortingSection />
       <OptionsWrapper>
-        <>
-          {selectedAlgorithms.map((sort: SortingAlgorithms, index: number) => {
-            React.useEffect(() => {
-              switch (sort) {
-                case "bubble": {
-                  stepArray = bubbleSort([...array]);
-                  break;
-                }
-                case "quick": {
-                  stepArray = quickSort([...array]);
-                  break;
-                }
-                case "insertion": {
-                  stepArray = insertionSort([...array]);
-                  break;
-                }
-              }
-            });
-            return <SelectPanel sort={sort} index={index} key={index} />;
-          })}
-        </>
+        <SelectPanel sort={algorithm} />
         <SlidersPanel />
         <ButtonWrapper>
           <StyledButton
             onClick={() =>
               startAnimation(
-                stepArray,
+                x[algorithm],
                 latestDelayRef,
                 array,
                 setArray,
