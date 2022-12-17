@@ -41,26 +41,25 @@ const MainPage = () => {
     shallow
   );
 
-  const x = {
+  const algorithmsObject = {
     bubble: bubbleSort([...array]),
     quick: quickSort([...array]),
     insertion: insertionSort([...array]),
   };
 
   const latestDelayRef = useLatest(delay);
-  const algorithm = selectedAlgorithm;
 
   return (
     <Wrapper>
       <SortingSection />
       <OptionsWrapper>
-        <SelectPanel sort={algorithm} />
+        <SelectPanel sort={selectedAlgorithm} />
         <SlidersPanel />
         <ButtonWrapper>
           <StyledButton
             onClick={() =>
               startAnimation(
-                x[algorithm],
+                algorithmsObject[selectedAlgorithm],
                 latestDelayRef,
                 array,
                 setArray,
