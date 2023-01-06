@@ -61,7 +61,7 @@ const Wrapper = styled("div", {
 const StyledInput = styled("input", {
   maxWidth: "100%",
   height: "2rem",
-  borderRadius: "5px",
+  borderRadius: "6px",
   border: "none",
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
   backgroundColor: "rgba(255,255,255,0.7)",

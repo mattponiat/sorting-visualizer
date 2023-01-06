@@ -7,7 +7,7 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  borderRadius: "8px",
+  borderRadius: "6px",
   padding: "0 15px",
   fontSize: 13,
   lineHeight: 1,
@@ -25,7 +25,7 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
 const StyledContent = styled(SelectPrimitive.Content, {
   overflow: "hidden",
   backgroundColor: "white",
-  borderRadius: "8px",
+  borderRadius: "6px",
   boxShadow:
     "0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)",
 });
