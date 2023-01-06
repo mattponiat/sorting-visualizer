@@ -26,7 +26,7 @@ const useSortingStore = create<SortingState>()((set) => ({
   setStateArray: (stateArray) => set({ stateArray }),
   selectedAlgorithm: "bubble",
   setSelectedAlgorithm: (selectedAlgorithm) => set({ selectedAlgorithm }),
-  allAlgorithms: ["bubble", "quick", "insertion"],
+  allAlgorithms: ["bubble", "quick", "insertion", "gnome"],
 }));
 
 export default useSortingStore;

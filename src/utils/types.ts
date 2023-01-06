@@ -6,4 +6,4 @@ export type Step = {
   type: StepType;
   targets: number[];
 };
-export type SortingAlgorithms = "bubble" | "quick" | "insertion";
+export type SortingAlgorithms = "bubble" | "quick" | "insertion" | "gnome";

@@ -4,6 +4,7 @@ import { styled } from "@stitches/react";
 import bubbleSort from "../functions/algos/bubbleSort";
 import quickSort from "../functions/algos/quickSort";
 import insertionSort from "../functions/algos/insertionSort";
+import gnomeSort from "../functions/algos/gnomesort";
 import getRandomNumbers from "../functions/getRandomNumbers";
 import startAnimation from "../functions/startAnimation";
 //Components
@@ -45,6 +46,7 @@ const MainPage = () => {
     bubble: bubbleSort([...array]),
     quick: quickSort([...array]),
     insertion: insertionSort([...array]),
+    gnome: gnomeSort([...array]),
   };
 
   const latestDelayRef = useLatest(delay);
