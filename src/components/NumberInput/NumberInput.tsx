@@ -1,8 +1,9 @@
 import * as React from "react";
 import { styled } from "@stitches/react";
+import { blackA } from "@radix-ui/colors";
 import _ from "lodash";
 //Components
-import Slider from "../Slider/Slider";
+import RangeSlider from "../RangeSlider/RangeSlider";
 //Hoooks
 import { useMemoizedFn } from "ahooks";
 
@@ -33,7 +34,7 @@ const NumberInput = ({ value, setValue, id, min, max }: NumberInputProps) => {
         max={max}
         onChange={(e) => handleChange(e)}
       />
-      <Slider
+      <RangeSlider
         value={value}
         setValue={setValue}
         max={max}
@@ -60,13 +61,14 @@ const Wrapper = styled("div", {
 const StyledInput = styled("input", {
   maxWidth: "100%",
   height: "2rem",
+  borderRadius: "5px",
   border: "none",
-  borderRadius: "8px",
+  boxShadow: `0 2px 10px ${blackA.blackA7}`,
   backgroundColor: "rgba(255,255,255,0.7)",
   padding: "6px",
 
   "&:focus": {
-    outline: "#ffe1fc 1px solid",
+    outline: "1px solid black",
   },
 
   "&::-webkit-inner-spin-button": {

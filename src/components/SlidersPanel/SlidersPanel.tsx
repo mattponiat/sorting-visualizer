@@ -41,7 +41,7 @@ const Wrapper = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  gap: "10px",
+  gap: "20px",
 });
 
 export default SlidersPanel;

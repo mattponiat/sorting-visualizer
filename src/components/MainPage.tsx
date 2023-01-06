@@ -90,12 +90,7 @@ const Wrapper = styled("div", {
   minHeight: "100vh",
   maxWidth: "100%",
   padding: "20px",
-  backgroundColor: "#00000010",
-  backgroundImage: "url(https://wallpaperaccess.com/full/340434.png)",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-  backgroundBlendMode: "multiply",
+  backgroundColor: "rgb(235, 235, 235)",
 });
 
 const OptionsWrapper = styled("div", {
@@ -103,8 +98,7 @@ const OptionsWrapper = styled("div", {
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  gap: "10px",
-  maxWidth: "700px",
+  maxWidth: "750px",
   width: "100%",
   userSelect: "none",
 

@@ -38,9 +38,6 @@ const Wrapper = styled("div", {
   maxWidth: "1480px",
   width: "100%",
   padding: "20px",
-  boxShadow: "0 8px 32px 0 #00000045",
-  backdropFilter: "blur(10px)",
-  borderRadius: "32px",
 });
 
 export default SortingSection;

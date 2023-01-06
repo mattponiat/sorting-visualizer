@@ -16,23 +16,20 @@ const SortingBar = ({ state, ...props }: Props) => {
 const StyledBar = styled("div", {
   width: "100%",
   minHeight: "15px",
-  backgroundColor: "rgba(255,255,255,0.65)",
-  borderRadius: "10px",
-  boxShadow: "0px 3px 0px rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(5px)",
+  backgroundColor: "#abb4eb",
   variants: {
     state: {
       default: {
-        backgroundColor: "rgba(255,255,255,0.7)",
+        backgroundColor: "#abb4eb",
       },
       compare: {
-        backgroundColor: "#C6AFDF",
+        backgroundColor: "#9048f4",
       },
       swap: {
-        backgroundColor: "#C6AFDF",
+        backgroundColor: "#9048f4",
       },
       pivot: {
-        backgroundColor: "#67fff27f",
+        backgroundColor: "#ff7ac6",
       },
     },
   },

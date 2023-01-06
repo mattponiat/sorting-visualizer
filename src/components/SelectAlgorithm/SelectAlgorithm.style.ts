@@ -11,13 +11,14 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   padding: "0 15px",
   fontSize: 13,
   lineHeight: 1,
-  height: 35,
+  height: 40,
+  width: 130,
   gap: 5,
   backgroundColor: "rgba(255,255,255,0.7)",
   color: violet.violet12,
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
   transition: "background-color 0.3s",
-  "&:hover": { backgroundColor: mauve.mauve3 },
+  "&:hover": { backgroundColor: mauve.mauve4 },
   "&:focus": { boxShadow: `0 0 0 2px black` },
 });
 
