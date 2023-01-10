@@ -2,7 +2,7 @@ const getRandomNumbers = (length: number): number[] => {
   const array: number[] = [];
 
   for (let i = 0; i < length; i++) {
-    array.push(Math.floor(Math.random() * 300) + 10);
+    array.push(Math.floor(Math.random() * 350) + 10);
   }
 
   return array;
