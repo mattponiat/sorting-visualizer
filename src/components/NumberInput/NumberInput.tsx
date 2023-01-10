@@ -56,11 +56,12 @@ const Wrapper = styled("div", {
   justifyContent: "center",
   gap: "5px",
   maxWidth: "100%",
+  marginTop: "4px",
 });
 
 const StyledInput = styled("input", {
   maxWidth: "100%",
-  height: "2rem",
+  height: "40px",
   borderRadius: "6px",
   border: "none",
   boxShadow: `0 2px 10px ${blackA.blackA7}`,

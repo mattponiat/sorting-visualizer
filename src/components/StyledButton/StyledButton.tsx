@@ -3,7 +3,7 @@ import { mauve, blackA } from "@radix-ui/colors";
 
 const StyledButton = styled("button", {
   width: "75px",
-  padding: "10px",
+  padding: "9px",
   backgroundColor: "rgba(255,255,255,0.7)",
   border: "none",
   borderRadius: "6px",
